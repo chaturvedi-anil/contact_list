@@ -1,13 +1,19 @@
 const express = require('express');
+const path = require('path');
 const port = 8000;
 
 const app=express();
 
+//setting template engine 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function(req, res)
 {
-    res.send('<h1>Its running now</h1>');
-})
+    // console.log(__dirname);
+    // res.send('<h1>Its running now</h1>');
+    return res.render('home');
+});
 
 app.listen(port, function(err)
 {
