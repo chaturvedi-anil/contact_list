@@ -8,14 +8,28 @@ const app=express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+var contactList = [
+    {
+        name:"anil",
+        phone: "1111111111"
+    },
+    {
+        name: "akash",
+        phone: "2222222222"
+    }
+]
 
 // --------------controlers-------------->
+// home controller
 app.get('/', function(req, res)
 {
-    // console.log(__dirname);
-    // res.send('<h1>Its running now</h1>');
-    return res.render('home', {title: "Home Ejs"} );
+    return res.render('home', 
+    {
+        title: "Contact List",
+        contact_list: contactList
+    });
 });
+// practice controller
 app.get('/practice', function(req, res)
 {
     return res.render('practice', {title: "Practice page"});
