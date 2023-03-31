@@ -7,6 +7,8 @@ const app=express();
 //setting template engine 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+// setting body parser middileware
+app.use(express.urlencoded());
 
 var contactList = [
     {
@@ -23,6 +25,7 @@ var contactList = [
 // home controller
 app.get('/', function(req, res)
 {
+    console.log(req);
     return res.render('home', 
     {
         title: "Contact List",
@@ -33,6 +36,14 @@ app.get('/', function(req, res)
 app.get('/practice', function(req, res)
 {
     return res.render('practice', {title: "Practice page"});
+});
+
+// add contact controller
+app.post('/create-contact', function(req, res)
+{
+    contactList.push(req.body);
+
+    return res.redirect('back');
 });
 
 
