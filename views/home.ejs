@@ -13,11 +13,11 @@
 <body>
     <h1 id="page-heading"><i class="fas fa-address-book"></i> My Contacts List</h1>
 
-    <div id="container">
+    <div class="container">
         <ul>
             <% for(let i of contact_list) {%>
-                <li>
-                    <div class="contact-container">
+                <li id="details">
+                    <div id="contact-details">
                         <p><%= i.name %></p>
                         <p><%= i.phone %></p>
                     </div>
@@ -32,12 +32,14 @@
         </ul>
     </div>
 
-    <form action="/create-contact" method="post">
-        <input type="text" name="name" placeholder="Enter Name" required>
-        <input type="number" name="phone" placeholder="Enter Number" required>
-
-        <button type="submit">Add</button>
-    </form>
+    <div class="container">
+        <form action="/create-contact" method="post">
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <input type="number" name="phone" placeholder="Enter Number" required>
+    
+            <button type="submit">Add</button>
+        </form>
+    </div>
 
     <script src="/javascript/home.js"></script>
 </body>
