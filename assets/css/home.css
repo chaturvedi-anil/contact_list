@@ -1,3 +1,63 @@
 body{
-    background-color: coral;
+    margin: 0;
+    text-align: center !important;
+    font-family: sans-serif;
+}
+#page-heading
+{
+    color: gray;
+    margin-top: 25px;
+}
+#container
+{
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact-container
+{
+    text-align: center;
+    width: 50vw;
+    background-color: royalblue;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 2px;
+}
+.contact-container p
+{
+    margin: 4px 6px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: inline-block;
+}
+.contact-container:hover
+{
+    background-color: grey;
+    cursor: pointer;
+}
+form{
+    margin-top: 2px;
+}
+input
+{
+    padding: 3px;
+    width: 21vw;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid grey;
+}
+button
+{
+    padding: 2px 4px;
+    color: white;
+    font-size: 1.2rem;
+    background-color: grey;
+    border:none;
+    
 }
