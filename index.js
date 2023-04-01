@@ -9,6 +9,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 // setting body parser middileware
 app.use(express.urlencoded());
+// setting static files
+app.use(express.static('assets'));
 
 var contactList = [
     {
@@ -25,7 +27,7 @@ var contactList = [
 // home controller
 app.get('/', function(req, res)
 {
-    console.log(req);
+    // console.log(req);
     return res.render('home', 
     {
         title: "Contact List",
