@@ -48,6 +48,20 @@ app.post('/create-contact', function(req, res)
     return res.redirect('back');
 });
 
+// delete contact controller
+app.get('/delete-contact/', function(req, res)
+{
+    let phone=req.query.phone;
+
+    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+
+    if(contactIndex != -1)
+    {
+        contactList.splice(contactIndex,1);
+    }
+     return res.redirect('back');
+});
+
 
 
 app.listen(port, function(err)
