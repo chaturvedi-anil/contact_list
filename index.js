@@ -2,7 +2,10 @@ const express = require('express');
 const path = require('path');
 const port = 8000;
 
+// database
 const db=require('./config/mongoose');
+// model
+const Contact=require('./models/contact');
 
 const app=express();
 
