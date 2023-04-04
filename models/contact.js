@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 
 // creating schema  
-const contactSchema=new mongoose.Schema({
+const contactSchema = new mongoose.Schema({
     name:
     {
         type: String,

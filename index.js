@@ -48,9 +48,18 @@ app.get('/practice', function(req, res)
 // add contact controller
 app.post('/create-contact', function(req, res)
 {
-    contactList.push(req.body);
-
-    return res.redirect('back');
+    Contact.create({
+        name: req.body.name,
+        phone: req.body.phone
+    })
+    .then( (newContact) => {
+        console.log('new contact added in db ', newContact);
+        return res.redirect('back');
+    }).catch((err) => {
+        
+        console.log('error in creating contact');
+        return;
+    });
 });
 
 // delete contact controller
