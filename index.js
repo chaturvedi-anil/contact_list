@@ -50,10 +50,13 @@ app.post('/create-contact', function(req, res)
         name: req.body.name,
         phone: req.body.phone
     })
-    .then( (newContact) => {
-        console.log('new contact added in db ', newContact);
+    .then( (newContact) => 
+    {
+        // console.log('new contact added in db ', newContact);
         return res.redirect('back');
-    }).catch((err) => {
+    })
+    .catch((err) => 
+    {
         
         console.log('error in creating contact');
         return;
@@ -63,15 +66,20 @@ app.post('/create-contact', function(req, res)
 // delete contact controller
 app.get('/delete-contact/', function(req, res)
 {
-    let phone=req.query.phone;
+    // geting id 
+    let id=req.query.id;
 
-    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
-
-    if(contactIndex != -1)
+    Contact.findByIdAndDelete({_id:id})
+    .then((data) =>
     {
-        contactList.splice(contactIndex,1);
-    }
-     return res.redirect('back');
+        console.log('Contact deleted');
+        return res.redirect('back');
+    })
+    .catch((err) =>
+    {
+        console.log('error in deleting contact', err);
+        return;
+    })
 });
 
 
