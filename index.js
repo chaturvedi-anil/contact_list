@@ -17,27 +17,25 @@ app.use(express.urlencoded());
 // setting static files
 app.use(express.static('assets'));
 
-var contactList = [
-    {
-        name:"anil",
-        phone: "1111111111"
-    },
-    {
-        name: "akash",
-        phone: "2222222222"
-    }
-]
-
 // --------------controlers-------------->
 // home controller
 app.get('/', function(req, res)
 {
-    // console.log(req);
-    return res.render('home', 
+    Contact.find({})
+    .then( (contacts)=> 
     {
-        title: "Contact List",
-        contact_list: contactList
+        return res.render('home', 
+        {
+            title: "Contact List",
+            contact_list: contacts
+        });
+    })
+    .catch((err)=>
+    {
+        console.log('error in fetching contacts from db');
+        return;
     });
+    
 });
 // practice controller
 app.get('/practice', function(req, res)
