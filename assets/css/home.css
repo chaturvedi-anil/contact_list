@@ -52,19 +52,48 @@ li
     font-weight: bold;
     display: inline-block;
 }
+/* delete */
 .delete-button
 {
     margin-right: 5px;
 }
 .delete-button a 
 {
+    background-color: red;
     text-decoration: none;
 }
 .delete-button a i
 {
     font-size: 1.3rem;
-    color:red;
+    color: white;
 }
+.delete-button a i:hover
+{
+    background-color: white;
+    color: red;
+}
+
+/* edit */
+.edit-button
+{
+    margin-right: 5px;
+}
+.edit-button a 
+{
+    text-decoration: none;
+    background-color: red;
+}
+.edit-button a i
+{
+    font-size: 1.3rem;
+    color: white;
+}
+.edit-button a i:hover
+{
+    background-color: white;
+    color: red;
+}
+
 form{
     margin: 2px 10px;
 }

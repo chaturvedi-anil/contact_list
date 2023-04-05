@@ -37,11 +37,7 @@ app.get('/', function(req, res)
     });
     
 });
-// practice controller
-app.get('/practice', function(req, res)
-{
-    return res.render('practice', {title: "Practice page"});
-});
+
 
 // add contact controller
 app.post('/create-contact', function(req, res)
@@ -61,6 +57,12 @@ app.post('/create-contact', function(req, res)
         console.log('error in creating contact');
         return;
     });
+});
+
+// update contact
+app.post('/edit-contact', function(req, res)
+{
+    let id=req.query.id;
 });
 
 // delete contact controller
